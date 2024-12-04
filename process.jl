@@ -73,7 +73,7 @@ M = Int(ceil(Nchans / n_workers))
 
 @info "$(Nchans) chans for $(n_workers) workers."
 
-Nchans = n_workers # Just to test
+#Nchans = n_workers # Just to test
 @time @sync @distributed for i in 1:n_workers
         start_chan = (i - 1) * Int(ceil(Nchans / n_workers)) + 1
         end_chan = min(i * Int(ceil(Nchans / n_workers)), Nchans)
